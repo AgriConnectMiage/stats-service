@@ -1,11 +1,12 @@
 package fr.miage.acm.statsservice.measurement;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+
+import org.springframework.data.neo4j.repository.Neo4jRepository;
 
 import java.util.List;
 import java.util.UUID;
 
-public interface MeasurementRepository extends JpaRepository<Measurement, UUID> {
+public interface MeasurementRepository extends Neo4jRepository<Measurement, UUID> {
     // Get sensors measurements
     List<Measurement> findByHumidityIsNotNullAndTemperatureIsNotNull();
 

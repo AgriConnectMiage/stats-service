@@ -1,7 +1,6 @@
 package fr.miage.acm.statsservice.device;
 
 import fr.miage.acm.statsservice.farmer.Farmer;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,19 +8,12 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Device {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Enumerated(EnumType.STRING)
     protected DeviceState state;
 
-    @ManyToOne
-    @JoinColumn(name = "farmer_id")
     private Farmer farmer;
 
 

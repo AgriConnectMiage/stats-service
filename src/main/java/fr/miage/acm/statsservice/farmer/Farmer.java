@@ -1,6 +1,5 @@
 package fr.miage.acm.statsservice.farmer;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,16 +7,12 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Entity
 public class Farmer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     private String firstName;
     private String lastName;
-    @Column(unique = true, nullable = false)
     private String email;
     private String password;
     private Integer fieldSize;

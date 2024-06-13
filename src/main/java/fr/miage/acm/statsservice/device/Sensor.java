@@ -2,7 +2,6 @@ package fr.miage.acm.statsservice.device;
 
 import fr.miage.acm.statsservice.farmer.Farmer;
 import fr.miage.acm.statsservice.field.Field;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,17 +9,12 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Entity
 public class Sensor extends Device {
     // Interval between two measurements in seconds
     private int interval;
 
-    @OneToOne
-    @JoinColumn(name = "field_id")
     private Field field;
-    @Column(columnDefinition = "NUMERIC(5,1)")
     private Float lastTemperatureMeasured;
-    @Column(columnDefinition = "NUMERIC(5,1)")
     private Float lastHumidityMeasured;
 
     LocalDateTime lastMeasurementTime;
